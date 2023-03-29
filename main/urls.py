@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from .views import go_back
+from django.views.static import serve
 
 urlpatterns = [
     path('go-back/', go_back, name='go_back'),
@@ -19,4 +20,5 @@ urlpatterns = [
     path("about", views.about, name = "about"),
     path('movie/<str:name>/<str:title>/toggle_watched', views.toggle_watched, name = "toggle_watched"),
     path('movie/<str:name>/<str:title>/discussionposts/<int:id>/toggle_likes', views.toggle_likes, name = "toggle_likes")
-]   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]   + urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+ + urlpatterns += [re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, }), ]
