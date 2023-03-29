@@ -151,6 +151,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 django_heroku.settings(locals())
 
 GS_BUCKET_NAME = "afterimage"
+GS_PROJECT_ID = "extended-cinema-382014"
 
 DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 GS_CREDENTIALS = KEY_FILE_PATH
