@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+from google.oauth2 import service_account
 
 
 
@@ -154,7 +155,7 @@ GS_BUCKET_NAME = "afterimage"
 GS_PROJECT_ID = "extended-cinema-382014"
 
 DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
-GS_CREDENTIALS = KEY_FILE_PATH
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(KEY_FILE_PATH)
 MEDIS_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
