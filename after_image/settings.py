@@ -25,7 +25,7 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '59871EEBC771C715ED529A237E7BAB2C6FEF2E863C739C141F57D17843')
 
 
-DEBUG = False
+DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
@@ -138,6 +138,9 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME='afterimage'
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 

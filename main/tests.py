@@ -260,3 +260,17 @@ class MovieWatched(TestCase):
     
     def testWhichMonthIsMovieWatched(self):
         self.assertEquals(self.movieWatched.month, self.testList)
+
+class ProfileViewTestCase(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.MyUser = MyUser.objects.create_user(username='username', email='user@gmail.com', password='password')
+        self.url = reverse('profile')
+
+    def testProfileWhileLoggedIn(self):
+        self.client.login(email='user@gmail.com', password='password')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'main/profile.html')
+        self.assertContains(response, 'profile')
