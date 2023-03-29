@@ -139,8 +139,8 @@ STATICFILES_DIRS = [
 ]
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME='afterimage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# GS_BUCKET_NAME='afterimage'
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
