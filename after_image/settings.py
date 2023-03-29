@@ -12,10 +12,14 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+from google.oauth2 import service_account
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+KEY_FILE_PATH = os.path.join(BASE_DIR, 'extended-cinema-382014-221e1bbd37b7.json')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -44,7 +48,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'crispy_forms',
     'main.apps.MainConfig',
-    'register.apps.RegisterConfig'
+    'register.apps.RegisterConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +143,13 @@ STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 django_heroku.settings(locals())
+
+GS_BUCKET_NAME = "afterimage"
+
+DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+GS_CREDENTIALS = KEY_FILE_PATH
+MEDIS_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+
 # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 # GS_BUCKET_NAME='afterimage'
 
