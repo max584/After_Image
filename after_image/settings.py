@@ -130,6 +130,7 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 MEDIA_ROOT = BASE_DIR / "media"
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
@@ -137,6 +138,21 @@ STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 django_heroku.settings(locals())
+=======
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'staticfiles')
+MEDIA_URL = '/media/'
+
+django_heroku.settings(locals())
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    BASE_DIR/"media"
+]
+
+
+>>>>>>> parent of 9958b91 (stuff)
 # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 # GS_BUCKET_NAME='afterimage'
 
@@ -152,8 +168,7 @@ LOGOUT_REDIRECT_URL = "/."
 
 AUTH_USER_MODEL = 'main.MyUser'
 
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
+
 
 SECURE_SSL_REDIRECT = True
 
