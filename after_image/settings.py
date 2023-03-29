@@ -133,13 +133,16 @@ STATIC_URL = 'static/'
 STATIC_URL = '/static/'
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR,'mediafiles')
 MEDIA_URL = '/media/'
 
 django_heroku.settings(locals())
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "static"
+]
+
+MEDIAFILES_DIRS = [
     BASE_DIR/"media"
 ]
 
