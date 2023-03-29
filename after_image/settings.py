@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
-from google.oauth2 import service_account
+
 
 
 
