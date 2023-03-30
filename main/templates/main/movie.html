@@ -105,7 +105,7 @@
         <p style="color: black;" class="lead">Length: {{ movie.length }} minutes</p>
         <p style="color: black;" class="lead">Synopsis: {{ movie.synopsis }}</p>
         <br>
-        {%if ls.archived == False}
+        {%if ls.archived == False%}
         <form method="post" action="#" onsubmit="displayMsg()">
             {% csrf_token %}
             <p class="lead" style="color: black;">{{ form.post }}</p>
